@@ -1,7 +1,7 @@
 image: androidsdk/android-30
 pipelines:
   branches:
-      qa_stag:               # pipeline definition for all branches
+      staging:               # pipeline definition for all branches
         - step:              # step to build Android debug application
             name: Android Staging Build Generating..
             size: 2x        # Double resources available for this step.
@@ -13,7 +13,7 @@ pipelines:
             artifacts:
               - app/build/outputs/**        # artifacts are files that are produced by a step https://support.atlassian.com/bitbucket-cloud/docs/use-artifacts-in-steps/
 
-      qa_prod:
+      prod:
         - step:
             name: Android Prod Build Generating..
             size: 2x
@@ -25,7 +25,7 @@ pipelines:
             artifacts:
               - app/build/outputs/**
 
-      release:
+      releaseStore:
         - step:
             name: Android Prod Build App Bundle Generating..
             size: 2x
