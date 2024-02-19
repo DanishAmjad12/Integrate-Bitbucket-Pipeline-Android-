@@ -32,7 +32,7 @@ Now let’s jump into the file to see how the file looks in practice:
 image: androidsdk/android-30
 pipelines:
   branches:
-      qa_stag:               # pipeline definition for all branches
+      staging:               # pipeline definition for all branches
         - step:              # step to build Android debug application
             name: Android Staging Build Generating..
             size: 2x        # Double resources available for this step.
@@ -64,7 +64,7 @@ The ultimate step is to build and test the pipeline. Once it’s finished, you c
 If you want a bundle release build then just add this command in the bitbucket-pipeline.yml file.
 
 ```
-      release:
+      releaseStore:
         - step:
             name: Android Prod Build App Bundle Generating..
             size: 2x
