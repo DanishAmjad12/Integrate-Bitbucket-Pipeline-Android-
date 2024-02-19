@@ -1,0 +1,38 @@
+image: androidsdk/android-30
+pipelines:
+  branches:
+      qa_stag:               # pipeline definition for all branches
+        - step:              # step to build Android debug application
+            name: Android Staging Build Generating..
+            size: 2x        # Double resources available for this step.
+            caches:        # caching speed up subsequent execution https://support.atlassian.com/bitbucket-cloud/docs/cache-dependencies/
+              - gradle
+            script:
+              - chmod +x gradlew
+              - ./gradlew assembleDebug
+            artifacts:
+              - app/build/outputs/**        # artifacts are files that are produced by a step https://support.atlassian.com/bitbucket-cloud/docs/use-artifacts-in-steps/
+
+      qa_prod:
+        - step:
+            name: Android Prod Build Generating..
+            size: 2x
+            caches:
+              - gradle
+            script:
+              - chmod +x gradlew
+              - ./gradlew assembleRelease
+            artifacts:
+              - app/build/outputs/**
+
+      release:
+        - step:
+            name: Android Prod Build App Bundle Generating..
+            size: 2x
+            caches:
+              - gradle
+            script:
+              - chmod +x gradlew
+              - ./gradlew bundleRelease
+            artifacts:
+              - app/build/outputs/**
