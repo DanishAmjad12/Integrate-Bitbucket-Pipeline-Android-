@@ -1,8 +1,8 @@
-# Integrate-Bitbucket-Pipeline-Android
+# 🚀 Integrate-Bitbucket-Pipeline-Android
 
 Bitbucket pipeline is an Integrated service built on Bitbucket Cloud where we can automatically test, build, and deploy the code based on the configuration file.
 
-# Prerequisites
+# ✍ Prerequisites
 * You need to create a Bitbucket cloud account
 * You should have one repository in that account.
 
